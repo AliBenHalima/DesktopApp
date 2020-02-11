@@ -1,0 +1,52 @@
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
+--
+-- Host: localhost    Database: testschema
+-- ------------------------------------------------------
+-- Server version	8.0.16
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `data`
+--
+
+DROP TABLE IF EXISTS `data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `data` (
+  `MAC` varchar(50) NOT NULL,
+  `Name` varchar(45) NOT NULL,
+  `IP_Address` varchar(45) NOT NULL,
+  PRIMARY KEY (`MAC`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `data`
+--
+
+LOCK TABLES `data` WRITE;
+/*!40000 ALTER TABLE `data` DISABLE KEYS */;
+INSERT INTO `data` VALUES ('05-09-B1-C1-03-02','Computer001','127.0.01'),('0A:D1:8D:F4:23:0F','Computer019','192.168.5.158'),('7F:5D:54:E7:51:FB','Computer025','192.168.1.165'),('82:2E:F8:F0:CC:BF','Computer089','192.168.1.154'),('99:61:CE:68:92:6E','Computer054','192.168.1.111'),('AE:A5:68:8B:98:C2','Computer004','192.168.1.132'),('B9:C9:B7:53:07:7B','Computer003','192.168.1.250'),('C6:DA:88:8D:E2:D3','Computer013','192.168.1.120'),('D1:5B:1F:A9:DF:E4','Computer005','192.168.1.234'),('D2:A7:C6:5C:F6:CE','Computer009','192.168.1.129'),('E8:3C:2C:9E:1B:71','Computer010','192.168.1.139'),('ED:B9:BE:D1:7B:2D','Computer008','192.168.1.171'),('EE:44:77:63:AB:F3','Computer021','192.168.1.220'),('F3:8A:6F:D7:64:3E','Computer018','192.168.1.182'),('F4:BC:29:9D:B3:79','Computer014','192.168.1.132'),('F5:E4:A2:CC:37:46','Computer020','192.168.1.191');
+/*!40000 ALTER TABLE `data` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-11-17 17:35:09
