@@ -74,8 +74,7 @@ namespace LogIN
             {
                 if (dr.GetString(0) == textBox1.Text && dr.GetString(1) == textBox2.Text)
                 {
-                    //  if (dr.GetString(0) == dr.GetString(1))
-
+        
                     this.Hide();
                      f2 = new Form2();
                     f2.Show();
@@ -93,8 +92,6 @@ namespace LogIN
                 con.Close();
             }
 
-
-
             dr.Close();
             con.Close();
         }
@@ -108,7 +105,7 @@ namespace LogIN
 
         private void Label3_Click(object sender, EventArgs e)
         {
-            //  { if (textBox2.Text != "")
+           
             textBox2.PasswordChar = default(char); //return '0/'
 
 
@@ -133,114 +130,6 @@ namespace LogIN
             f2 = new Form2();
             f2.Show();
         }
-        /*   public static void WakeUp(string mac, string network, int udpPort , int ttl )
-  {
-      UdpClient client = default(UdpClient);
-      IPEndPoint localEndPoint = default(IPEndPoint);
-      NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces(); //GetAllNetworkInterfaces retourne un tableau qui contint une instance de cet classe
-
-      byte[] packet = new byte[102];
-      int i = default(int), j = default(int);
-      byte[] macBytes = default(byte[]);
-
-      try
-      {
-          macBytes = Form2.GetMac1(mac);
-          // WOL packet contains a 6-bytes header and 16 times a 6-bytes sequence containing the MAC address.
-          // packet =  byte(17 * 6)
-          // Header of 0xFF 6 times.
-
-          for (i = 0; i <= 5; i++)
-              packet[i] = 255;
-
-          // Body of magic packet contains the MAC address repeated 16 times.
-
-          for (i = 1; i <= 16; i++)
-          {
-              for (j = 0; j <= 5; j++)
-                  packet[(i * 6) + j] = macBytes[j];
-          }
-
-          for (int p = 0; p < packet.Length; p++)
-          { MessageBox.Show(packet[p].ToString()); }
-
-
-          foreach (NetworkInterface adapter in nics)
-          {
-              // Only display informatin for interfaces that support IPv4. 
-              if (adapter.Supports(NetworkInterfaceComponent.IPv4) == false)
-                  continue;
-
-              //  UnicastIPAddressInformationCollection addresses = adapter.GetIPProperties.UnicastAddresses;
-              UnicastIPAddressInformationCollection addresses = adapter.GetIPProperties().UnicastAddresses;
-
-              foreach (UnicastIPAddressInformation address in addresses)
-              {
-                  if (address.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-                  {
-                      localEndPoint = new IPEndPoint(IPAddress.Parse(address.Address.ToString()), udpPort);
-                      //  Debug.WriteLine("Interface: " + localEndPoint.ToString());
-
-                      try
-                      {
-                          client = new UdpClient();
-                          client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-                          client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, true);
-                          client.ExclusiveAddressUse = false;
-                          client.Client.Bind(localEndPoint);
-                          client.Connect(network, udpPort);
-                          client.EnableBroadcast = true;
-                          client.Ttl = (short)ttl;
-
-                          client.Send(packet, packet.Length);
-                      }
-                      catch
-                      {
-                      }
-                  }
-              }
-          }
-      }
-      catch (Exception ex)
-      {
-          throw;
-      }
-  }
-  private static byte[] GetMac(string mac)  // 01 05 09 C2 C1 B1
-  {
-      byte[] m = default(byte[]);
-      String macAddress = mac;                    // Our device MAC address
-      macAddress = Regex.Replace(mac, "[-|:]", "");
-      for (int j = 0; j < 16; j++)
-      {
-          for (int k = 0; k < macAddress.Length; k ++)
-          {
-              String s = macAddress.Substring((k*2), 2);
-              m[k] = byte.Parse(s, NumberStyles.HexNumber);
-              //payloadIndex++;
-          }
-
-
-          /*
-          int i = default(int);
-          byte[] m = new byte[6];
-          string s;
-          s = mac.Replace(" ", "");
-          s = s.Replace(":", "");
-          s = s.Replace("-", "");
-          for (i = 0; (i <= 5); i++)
-          {
-              m[i] = ("&H" + s.Substring((i * 2), 2));
-          }
-
-      }
-
-      return m;
-}
-
-  */
-
-
 
     }
 }

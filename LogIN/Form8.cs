@@ -54,21 +54,11 @@ namespace LogIN
                     //  if (reader.HasRows)
                     if (dt.Rows.Count != 0)
                     {
-                    // if (dr.HasRows) { 
-
-
-                    //  f8 = new Form2();
-
-                    // f2.dataGridView1.DataSource = null;
-                    //  f2.dataGridView1.Rows.Clear();
-
-                    // f2.dataGridView1.SetDataBinding(testschema, "data");
-                    //  DataTable dt = new DataTable();
-                    //    dt.Load(dr);
+                    
                     frm2.dataGridView1.DataSource = null;
                     frm2.dataGridView1.Rows.Clear();
                     frm2.dataGridView1.DataSource = dt;
-                    //f2.dataGridView1.Refresh();
+                   
                     con.Close();
                         this.Close();
 
@@ -84,13 +74,6 @@ namespace LogIN
                 catch (Exception ex)
                 { MessageBox.Show(ex.Message); }
             }
-
-
-
-
-        
-       // public void DisplayData_Research()
-        
 
         
         private void Button2_Click(object sender, EventArgs e)

@@ -36,7 +36,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
-//using Microsoft.Management.Infrastructure;
+
 
 
 namespace LogIN
@@ -312,15 +312,6 @@ namespace LogIN
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*   {
-                   DataGridView dgv = sender as DataGridView;
-                   if (dgv == null)
-                       return;
-                   if (dgv.CurrentRow.Selected)
-                   {
-
-                   }
-               }*/
         }
 
         private void AfficherListeDePCToolStripMenuItem_Click(object sender, EventArgs e)
@@ -338,27 +329,10 @@ namespace LogIN
             DataTable dt = new DataTable();
             dt.Load(dr);
             dataGridView1.DataSource = dt;
-            /* foreach (DataGridViewColumn column in dataGridView1.Columns)
-                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-             this.Width = dataGridView1.Width + 100; */
-            // dataGridView1.RowTemplate.Resizable = DataGridViewTriState.True;
-            // dataGridView1.RowTemplate.Height = 50;
+          
             con.Close();
         }
-        /*  public void Recuperation()
-          {
-              conn.Open();
-              SqlCommand cmd1 = new SqlCommand("Select * FROM [dbo].[Table1]", conn);
-              SqlDataReader dr = cmd1.ExecuteReader();
-              DataTable dt = new DataTable();
-              dt.Load(dr);
-              dataGridView1.DataSource = dt;
-              String Query = "Select MAC from [dbo].[Table1] where 
-
-              conn.Close()
-
-          }*/
+        
         private void ActualiserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dataGridView1.Refresh();
@@ -412,9 +386,7 @@ namespace LogIN
         {
             GetMac1(DataGrid_MAC);
             WakeUp(DataGrid_MAC, network, udpPort, ttl);
-            //MessageBox.Show("Done");
-            // Need to get the Button the ContextMenu .Show'd on in
-            // OnButtonMouseClick...  thoughts?
+           
         }
 
         public void Onitem2Clicked(object sender, EventArgs e)
@@ -462,46 +434,7 @@ namespace LogIN
 
 
         }
-            /* if (e.RowIndex < 0) // RowIndex : the index of the row that contains the CELL 
-                                  // return 's -1  if there is no  Row
-             {
-                 return;
-             }
-
-             int index = e.RowIndex;
-             dataGridView1.Rows[index].Selected = true;
-
-             */
-
-
-            /*   public static void Shutdown(string host, ShutdownFlags flags, string userid = "", string password = "", string domain = "", string message = "")
-               {
-                   switch (flags)
-                   {
-                       case var @case when @case == ShutdownFlags.LegacyShutdown:
-                       case var case1 when case1 == ShutdownFlags.LegacyForcedShutdown:
-                       case var case2 when case2 == ShutdownFlags.LegacyReboot:
-                       case var case3 when case3 == ShutdownFlags.LegacyForcedReboot:
-                           {
-                               ShutdownLegacy(host, flags, userid, password, message);
-                               break;
-                           }
-
-                       default:
-                           {
-                               shutdownWMI(host, flags, userid, password, domain, message);
-                               break;
-                           }
-                   }
-               }*/
-            /*  public static void Shutdown()
-              {
-                  var shutdown = new ProcessStartInfo("shutdown", @"-m \\192.168.1.7 -s -f -t 0");
-                  shutdown.CreateNoWindow = true;
-                  shutdown.UseShellExecute = false;
-                  Process.Start(shutdown);
-              }
-              */
+            
             public void Shutdown(string strComputerNameInLan)
         {
             string shutdownString = @"/c shutdown /l \\" + strComputerNameInLan;
@@ -535,29 +468,7 @@ namespace LogIN
                 obj.InvokeMethod("ShutDown2", null); //shutdown  
             }
         }
-        /*  public string ShutdownName(string client)
-          {
-              string shutdownString = @"/c shutdown -s -t 1 -f -m \\" + client;
-              try
-              {
-                  ProcessStartInfo psiOpt = new ProcessStartInfo("cmd.exe", shutdownString);
-                  psiOpt.WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.System);
-                  psiOpt.WindowStyle = ProcessWindowStyle.Hidden;
-                  psiOpt.RedirectStandardOutput = true;
-                  psiOpt.UseShellExecute = false;
-                  psiOpt.CreateNoWindow = true;
-                  Process procCommand = Process.Start(psiOpt);
-                  procCommand.WaitForExit();
-
-                  return "success";
-
-              }
-              catch (Exception e)
-              {
-                  string eError = e.Message;
-                  return "failed";
-              }
-          }*/
+       
         public void Shutdown1(string ShutdownIP, int TimeToShutdown) // works !!!
         {
             Process commandProcess = new Process();
@@ -622,10 +533,7 @@ namespace LogIN
                     MessageBox.Show(ex.Message);
                 }
             }
-            //  ShutdownLegacy("127.0.0.0", ShutdownFlags.LegacyForcedShutdown, "Administrateur", "0000", "RIEN");
-            //  Shutdown1("192.168.1.7", 0);//DESKTOP - H6VQ23E
-            // ShutdownName("DESKTOP-H6VQ23E");
-            // Shutdown2("192.168.1.7");
+           
         }
 
         public void Ping1(string host1)
@@ -638,9 +546,7 @@ namespace LogIN
 
             //just need some data. this sends 10 bytes.
             var buffer = Encoding.ASCII.GetBytes(new string('z', 10));
-            //  var host = "127.0.0.1";
-            //host = DataGrid_IP;
-
+           
             try
             {
                 int index = dataGridView1.SelectedRows[j].Index;
@@ -684,9 +590,7 @@ namespace LogIN
 
             //just need some data. this sends 10 bytes.
             var buffer = Encoding.ASCII.GetBytes(new string('z', 10));
-            //  var host = "127.0.0.1";
-            //host = DataGrid_IP;
-
+           
             try
             {
                 var reply = ping.Send(host1_, 60, buffer, options); //60 time-out 
